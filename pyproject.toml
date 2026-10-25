@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "garmin-rest-agent"
+version = "0.1.0"
+description = "Local Garmin sleep, recovery and training reports with a portable Codex skill"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+dependencies = ["tzdata>=2025.2; sys_platform == 'win32'"]
+
+[project.optional-dependencies]
+community = ["garminconnect==0.3.20"]
+personal = ["garmin-connect-personal-api-python==1.0.0"]
+dev = ["ruff>=0.9"]
+
+[project.scripts]
+garmin-rest = "garmin_rest_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "B"]

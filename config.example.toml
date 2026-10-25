@@ -1,0 +1,15 @@
+# Copy to config.toml. Relative paths resolve against THIS file, not the shell directory.
+timezone = "Asia/Shanghai"
+region = "cn"                     # cn | global
+source = "community"              # browser | community | personal | files
+data_dir = "data"
+report_dir = "reports"
+token_dir = "tokens"
+sleep_goal_hours = 7.5             # Personal planning goal, not a medical threshold
+baseline_days = 28
+minimum_baseline_samples = 7
+
+codex_command = "codex"           # CLI name or absolute executable path
+codex_timeout_seconds = 180
+# --codex explicitly uses the user's current Codex authentication and model configuration.
+# Garmin Personal API reads GARMIN_PERSONAL_API_KEY (global endpoint only in this version).
