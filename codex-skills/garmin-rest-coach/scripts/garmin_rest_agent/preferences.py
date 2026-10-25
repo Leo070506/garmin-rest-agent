@@ -5,6 +5,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+from .console import ensure_utf8_console
 from .storage import write_json
 
 TOPICS = {"sleep": "睡眠", "recovery": "恢复", "activity": "日常运动", "training": "训练", "steps": "步数"}
@@ -106,6 +107,7 @@ def schedule_plan(p: Preferences) -> dict:
 def interactive_setup(current: Preferences, ask=input) -> Preferences:
     """Terminal fallback; Codex should ask the same questions conversationally."""
     from dataclasses import replace
+    ensure_utf8_console()
     print("佳息首次设置：可选多个主题，之后随时可以修改。")
     print("1 睡眠 / 2 恢复 / 3 日常运动 / 4 训练 / 5 步数")
     topics_text = ask("关注哪些？输入编号，用逗号分隔（回车保留当前选择）：").strip()

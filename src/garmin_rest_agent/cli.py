@@ -10,6 +10,7 @@ from . import __version__
 from .analysis import build_evidence, report_window
 from .browser import connection_plan, import_browser
 from .config import Config, load_config
+from .console import ensure_utf8_console
 from .demo import demo_days
 from .normalize import normalize_day
 from .preferences import (
@@ -229,6 +230,7 @@ def execute(args):
 
 
 def main(argv=None):
+    ensure_utf8_console()
     args = parser().parse_args(argv)
     try:
         execute(args)

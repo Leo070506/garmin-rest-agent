@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "garmin-rest-agent"
-version = "0.1.0"
+version = "0.1.1"
 description = "Local Garmin sleep, recovery and training reports with a portable Codex skill"
 readme = "README.md"
 requires-python = ">=3.12"

@@ -15,7 +15,7 @@
 使用 skill-installer，从 https://github.com/Leo070506/garmin-rest-agent/tree/main/codex-skills/garmin-rest-coach 安装这个 skill。
 ```
 
-也可下载 [v0.1.0 Skill 安装包](https://github.com/Leo070506/garmin-rest-agent/releases/download/v0.1.0/garmin-rest-coach.zip)，
+也可下载 [v0.1.1 Skill 安装包](https://github.com/Leo070506/garmin-rest-agent/releases/download/v0.1.1/garmin-rest-coach.zip)，
 把里面的 `garmin-rest-coach` 文件夹放入 `~/.codex/skills/`；设置了 `CODEX_HOME` 时使用其下的 `skills/`。
 Windows 的默认位置是 `%USERPROFILE%\.codex\skills\`。不要覆盖已有同名 skill。
 Windows 对应 Python 环境还需 `python -m pip install tzdata`。只使用网页模式无需安装 Garmin SDK。
@@ -30,7 +30,7 @@ Windows 对应 Python 环境还需 `python -m pip install tzdata`。只使用网
 首次调用才会开始引导；安装不会直接开启对话或自动启用汇报。
 该版本是预览版：离线功能已测试，真实中国区登录、网页到首报全流程和后台浏览器访问仍需实测。
 
-[下载与版本说明](https://github.com/Leo070506/garmin-rest-agent/releases/tag/v0.1.0) ·
+[下载与版本说明](https://github.com/Leo070506/garmin-rest-agent/releases/tag/v0.1.1) ·
 [反馈问题](https://github.com/Leo070506/garmin-rest-agent/issues)
 
 ## 1. 不登录，先看演示

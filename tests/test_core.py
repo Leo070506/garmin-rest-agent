@@ -1,5 +1,7 @@
 import json
 import os
+import subprocess
+import sys
 import tempfile
 import unittest
 from datetime import date, datetime, timedelta, timezone
@@ -166,7 +168,16 @@ class CoreTests(unittest.TestCase):
         p = self.root / "config.toml"
         p.write_text('source="files"\ntimezone="Asia/Shanghai"\n', encoding="utf-8")
         cfg = load_config(p)
-        self.assertEqual(cfg.path("data_dir"), self.root / "data")
+        self.assertEqual(cfg.path("data_dir"), (self.root / "data").resolve())
+
+    def test_cli_init_succeeds_with_chinese_output_under_legacy_windows_encoding(self):
+        cfg = self.root / "legacy-console" / "config.toml"
+        env = dict(os.environ, PYTHONUTF8="0", PYTHONIOENCODING="cp1252")
+        process = subprocess.run([sys.executable, "-m", "garmin_rest_agent", "--config", str(cfg),
+                                  "init", "--source", "browser"], env=env, capture_output=True, timeout=20)
+        self.assertEqual(process.returncode, 0, process.stderr.decode("utf-8", errors="replace"))
+        self.assertTrue(cfg.is_file())
+        self.assertIn("已创建", process.stdout.decode("utf-8"))
 
     def test_cli_offline_demo_end_to_end_and_no_cloud(self):
         destination = self.root / "demo"
